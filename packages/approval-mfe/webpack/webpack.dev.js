@@ -11,9 +11,9 @@ const devConfig = {
       index: "index.html",
     },
   },
-  optimization: {
-    runtimeChunk: "single",
-  },
+  // optimization: { // ? Enabling this will enable HMR
+  //   runtimeChunk: "single",
+  // },
   plugins: [
     new ModuleFederationPlugin({
       name: "approval",

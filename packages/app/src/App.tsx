@@ -13,7 +13,7 @@ const App = () => {
 
   return (
     <div>
-      <h1>App</h1>
+      <h1>Parent App</h1>
       <div ref={approvalRef}></div>
     </div>
   );
