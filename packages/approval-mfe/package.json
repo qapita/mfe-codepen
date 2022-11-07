@@ -1,0 +1,8 @@
+{
+  "name": "approval-mfe",
+  "version": "1.0.0",
+  "description": "A microfrontend application.",
+  "main": "src/index.ts",
+  "author": "Jyotiranjan Sahoo<jyotiranjan.sahoo@qapita.com>",
+  "license": "MIT"
+}
