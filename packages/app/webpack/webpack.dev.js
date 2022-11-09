@@ -1,4 +1,5 @@
 const { merge } = require("webpack-merge");
+const path = require("path");
 const ModuleFederationPlugin = require("webpack/lib/container/ModuleFederationPlugin");
 const ExternalTemplateRemotesPlugin = require("external-remotes-plugin");
 const packageJson = require("../package.json");
@@ -8,9 +9,13 @@ const devConfig = {
   mode: "development",
   devServer: {
     port: 8000,
-    historyApiFallback: {
-      index: "/",
-    },
+    historyApiFallback: true,
+    hot: true,
+  },
+  output: {
+    publicPath: '/',
+    path: path.resolve(__dirname, '../dist'),
+    filename: 'main.js'
   },
   plugins: [
     new ModuleFederationPlugin({

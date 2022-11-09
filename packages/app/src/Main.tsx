@@ -19,9 +19,9 @@ const Main = () => {
             <h1>Header</h1>
             <main>
                 <Routes>
-                    <Route path="/exercises" element={renderMFE(LiquidityApp)}/>
-                    <Route path="/surrenders" element={renderMFE(LiquidityApp)}/>
-                    <Route path="/approvals" element={renderMFE(ApprovalApp, 'Loading approvals..')}/>
+                    <Route path="/liquidity/*" element={renderMFE(LiquidityApp)}/>
+                    <Route path="/approvals/*" element={renderMFE(ApprovalApp, 'Loading approvals..')}/>
+                    <Route path="*" element={"No match found"}/>
                   </Routes>     
             </main>
         </div>
