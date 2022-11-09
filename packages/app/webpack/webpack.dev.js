@@ -1,24 +1,32 @@
 const { merge } = require("webpack-merge");
+const path = require("path");
 const ModuleFederationPlugin = require("webpack/lib/container/ModuleFederationPlugin");
+const ExternalTemplateRemotesPlugin = require("external-remotes-plugin");
 const packageJson = require("../package.json");
 const commonConfig = require("./webpack.common");
 
 const devConfig = {
   mode: "development",
   devServer: {
-    port: 7000,
-    historyApiFallback: {
-      index: "index.html",
-    },
+    port: 8000,
+    historyApiFallback: true,
+    hot: true,
+  },
+  output: {
+    publicPath: '/',
+    path: path.resolve(__dirname, '../dist'),
+    filename: 'main.js'
   },
   plugins: [
     new ModuleFederationPlugin({
       name: "container",
       remotes: {
-        approval: "approval@http://localhost:7001/remoteEntry.js",
+        approval: "approval@[window.approvalMFE]/remoteEntry.js",
+        liquidity: "liquidity@[window.liquidityMFE]/remoteEntry.js",
       },
       shared: packageJson.dependencies,
     }),
+    new ExternalTemplateRemotesPlugin(),
   ],
 };
 

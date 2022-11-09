@@ -6,7 +6,7 @@ const commonConfig = require("./webpack.common");
 const devConfig = {
   mode: "development",
   devServer: {
-    port: 8001,
+    port: 8002,
     historyApiFallback: {
       index: "index.html",
     },
@@ -16,14 +16,16 @@ const devConfig = {
   // },
   plugins: [
     new ModuleFederationPlugin({
-      name: "approval",
+      name: "liquidity",
       filename: "remoteEntry.js",
       exposes: {
-        "./ApprovalApp": "./src/App",
+        "./LiquidityApp": "./src/App",
       },
       shared: packageJson.dependencies,
     }),
   ],
 };
+
+
 
 module.exports = merge(commonConfig, devConfig);

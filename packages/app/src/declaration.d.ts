@@ -6,3 +6,4 @@ declare module "*.png";
 declare module "*.svg";
 declare module "*.less";
 declare module "approval/ApprovalApp";
+declare module "liquidity/LiquidityApp";

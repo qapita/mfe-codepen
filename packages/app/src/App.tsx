@@ -1,21 +1,13 @@
-import React, { useEffect, useRef } from "react";
+import React, { Suspense, useEffect, useRef } from "react";
+import {BrowserRouter as Router} from "react-router-dom";
+import Main from "./Main";
+
 
 const App = () => {
-  const approvalRef: any = useRef(null);
-
-  useEffect(() => {
-    import("approval/ApprovalApp")
-      .then(({ mount }) => mount(approvalRef.current))
-      .catch((err) => {
-        console.error(err);
-      });
-  }, []);
-
   return (
-    <div>
-      <h1>Parent App</h1>
-      <div ref={approvalRef}></div>
-    </div>
+    <Router>
+      <Main></Main>
+    </Router>
   );
 };
 
