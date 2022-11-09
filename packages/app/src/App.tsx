@@ -1,20 +1,17 @@
-import React, { useEffect, useRef } from "react";
+import React, { Suspense, useEffect, useRef } from "react";
+const ApprovalApp = React.lazy(() => import('approval/ApprovalApp'));
+const LiquidityApp = React.lazy(() => import('liquidity/LiquidityApp'));
 
 const App = () => {
-  const approvalRef: any = useRef(null);
-
-  useEffect(() => {
-    import("approval/ApprovalApp")
-      .then(({ mount }) => mount(approvalRef.current))
-      .catch((err) => {
-        console.error(err);
-      });
-  }, []);
-
   return (
     <div>
       <h1>Parent App</h1>
-      <div ref={approvalRef}></div>
+      <Suspense fallback={<div>Loading Approval...</div>}>
+        <ApprovalApp />
+      </Suspense>
+      <Suspense fallback={<div>Loading Liquidity...</div>}>
+        <LiquidityApp />
+      </Suspense>      
     </div>
   );
 };

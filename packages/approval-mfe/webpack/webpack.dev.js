@@ -6,7 +6,7 @@ const commonConfig = require("./webpack.common");
 const devConfig = {
   mode: "development",
   devServer: {
-    port: 7001,
+    port: 8001,
     historyApiFallback: {
       index: "index.html",
     },
@@ -19,7 +19,7 @@ const devConfig = {
       name: "approval",
       filename: "remoteEntry.js",
       exposes: {
-        "./ApprovalApp": "./src/bootstrap",
+        "./ApprovalApp": "./src/App",
       },
       shared: packageJson.dependencies,
     }),
