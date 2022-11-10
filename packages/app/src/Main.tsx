@@ -34,7 +34,6 @@ const Main = () => {
                     <Route path="/surrenders" element={<System system={{ remote: 'liquidity', url: (window as any).liquidityMFE, module: './LiquidityApp'  }} />} />
                     <Route path="/approvals" element={<System system={{ remote: 'approval', url: (window as any).approvalMFE, module: './ApprovalApp'  }} />} />
                     <Route path="*" element={"No match found"}/>
-                    <Route path="/" element={<HomePage />} />
                   </Routes>     
             </main>
         </div>
