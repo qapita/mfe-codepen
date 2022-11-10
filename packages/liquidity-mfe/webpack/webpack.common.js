@@ -10,7 +10,7 @@ const sassModuleRegex = /\.module\.(scss|sass)$/;
 const assetsRegx =
   /\.(png|jp(e*)g|svg|woff(2)?|ttf|eot|pdf)(\?v=\d+\.\d+\.\d+)?$/;
 
-module.exports = ({
+module.exports = {
   entry: "./src/index",
   module: {
     rules: [
@@ -112,8 +112,8 @@ module.exports = ({
   plugins: [
     new HtmlWebpackPlugin({
       title: "Liquidity Mfe",
-      template: path.resolve(__dirname, "../public/index.html")
+      template: path.resolve(__dirname, "../public/index.html"),
     }),
     new ForkTsCheckerWebpackPlugin(),
   ],
-});
+};
