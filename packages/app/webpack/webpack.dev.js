@@ -20,13 +20,9 @@ const devConfig = {
   plugins: [
     new ModuleFederationPlugin({
       name: "container",
-      remotes: {
-        approval: "approval@[window.approvalMFE]/remoteEntry.js",
-        liquidity: "liquidity@[window.liquidityMFE]/remoteEntry.js",
-      },
+      remotes: {},
       shared: packageJson.dependencies,
-    }),
-    new ExternalTemplateRemotesPlugin(),
+    })
   ],
 };
 
